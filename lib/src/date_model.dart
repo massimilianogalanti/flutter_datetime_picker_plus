@@ -139,7 +139,7 @@ class DatePickerModel extends CommonPickerModel {
       DateTime? maxTime,
       DateTime? minTime,
       LocaleType? locale,
-      this.showYearColumn = false})
+      this.showYearColumn = true})
       : super(locale: locale) {
     this.maxTime = maxTime ?? DateTime(2049, 12, 31);
     this.minTime = minTime ?? DateTime(1970, 1, 1);
