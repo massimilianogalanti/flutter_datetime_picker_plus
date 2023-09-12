@@ -130,6 +130,7 @@ class CommonPickerModel extends BasePickerModel {
 
 //a date picker model
 class DatePickerModel extends CommonPickerModel {
+  bool showYearColumn;
   late DateTime maxTime;
   late DateTime minTime;
 
@@ -137,7 +138,8 @@ class DatePickerModel extends CommonPickerModel {
       {DateTime? currentTime,
       DateTime? maxTime,
       DateTime? minTime,
-      LocaleType? locale})
+      LocaleType? locale,
+      this.showYearColumn = false})
       : super(locale: locale) {
     this.maxTime = maxTime ?? DateTime(2049, 12, 31);
     this.minTime = minTime ?? DateTime(1970, 1, 1);
@@ -366,6 +368,14 @@ class DatePickerModel extends CommonPickerModel {
     } else {
       return '';
     }
+  }
+
+  @override
+  List<int> layoutProportions() {
+    if (showYearColumn)
+      return [1, 1, 1];
+    else
+      return [0, 1, 1];
   }
 
   @override
